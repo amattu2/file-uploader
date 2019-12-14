@@ -5,7 +5,8 @@ This is a simple file uploader based on PHP (7.2) which implements file mime sni
 TBD
 
 # Previews
-TBD
+![preview image](https://github.com/amattu2/file-uploader/blob/master/screenshots/file-selected.png)
+![preview image](https://github.com/amattu2/file-uploader/blob/master/screenshots/home-page.png)
 
 # Notes
 To produce a simple product, this uploader does not store files outside of the public www/public_html directory. I strongly recommend storing all uploaded files out of public access.
