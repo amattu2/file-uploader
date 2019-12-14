@@ -100,7 +100,7 @@ function uploadFiles() {
 	}
 
 	// Variables
-	global $file_upload_max_size, $file_upload_allowed_types;
+	global $file_upload_max_size, $file_upload_allowed_types, $application_upload_baseurl;
 	$count = count($_FILES['uploads']['name']);
 	$success = Array();
 	$errors = Array();
@@ -137,7 +137,7 @@ function uploadFiles() {
 
 		// Move File, Save Log
 		if (move_uploaded_file($tempPath, dirname(__FILE__, 2) ."/uploads/". $actualName . $actualExtension)) {
-			$success[] = $originalName;
+			$success[] = $application_upload_baseurl . $actualName . $actualExtension;
 		} else {
 			$errors[] = $originalName . " unknown error";
 		}

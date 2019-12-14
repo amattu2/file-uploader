@@ -16,7 +16,7 @@
 // Application
 $application_name = "File Uploader";
 $application_page_title = "$application_name";
-$application_baseurl = "https://example.com/";
+$application_upload_baseurl = "https://example.com/uploads/";
 
 // File Upload Details
 $file_upload_max_size = 2500000; // 2.5mb

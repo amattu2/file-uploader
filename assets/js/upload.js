@@ -71,10 +71,27 @@ document.getElementById('submit').onclick = function(e) {
 		hideLoader();
 		removePreviews();
 	}
+	request.onprogress = function(e) {
+		// Variables
+		let progress = parseInt((e.loaded / e.total).toFixed(2) * 100);
+		let bar = document.getElementById('progress-bar');
+
+		// Checks
+		if (!e.lengthComputable) { bar.dataset.progress = 0; return false }
+		if (typeof(e.loaded) !== "number" || typeof(e.total) !== "number") { bar.dataset.progress = 0; return false }
+		if (progress <= 0) {
+			bar.dataset.progress = "0";
+		} else if (progress > 0 && progress <= 99) {
+			bar.dataset.progress = progress.toString();
+		} else if (bar.dataset.progress > 99) {
+			bar.dataset.progress = "100";
+		}
+	};
 
 	// Submit
-	request.open('POST', "../api/v1/upload.php");
+	request.open('POST', "api/upload.php");
 	request.send(form);
+	document.getElementById('progress-bar').dataset.progress = "0";
 	showLoader();
 	e.preventDefault();
 	e.stopPropagation();
